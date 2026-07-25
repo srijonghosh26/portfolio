@@ -2,10 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=YOUR_NEW_CANVA_WEBSITE_URL">
-  <title>Srijon Ghosh - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Srijon Ghosh - Creative Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .portfolio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .slide-section {
+      width: 100%;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .slide-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-section img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+  </style>
 </head>
 <body>
-  <p>Loading portfolio... <a href="YOUR_NEW_CANVA_WEBSITE_URL">Click here if not redirected</a>.</p>
+
+  <div class="portfolio-container">
+    <div class="slide-section"><img src="1.png" alt="Creative Portfolio Cover"></div>
+    <div class="slide-section"><img src="2.png" alt="About Me"></div>
+    <div class="slide-section"><img src="3.png" alt="Personal Skills"></div>
+    <div class="slide-section"><img src="4.png" alt="Work Experience"></div>
+    <div class="slide-section"><img src="5.png" alt="First Project"></div>
+    <div class="slide-section"><img src="6.png" alt="Second Project"></div>
+    <div class="slide-section"><img src="7.png" alt="Third Project"></div>
+    <div class="slide-section"><img src="8.png" alt="Documentary Project"></div>
+    <div class="slide-section"><img src="9.png" alt="Achievement"></div>
+    <div class="slide-section"><img src="10.png" alt="Client's Work"></div>
+    <div class="slide-section"><img src="11.png" alt="What's Next"></div>
+    <div class="slide-section"><img src="12.png" alt="Get in Touch"></div>
+  </div>
+
+  <script>
+    // Intersection Observer to trigger scroll animation when images enter viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    document.querySelectorAll('.slide-section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
 </body>
 </html>
